@@ -59,15 +59,18 @@ public class LoginCheckServlet extends HttpServlet {
 			   response.sendRedirect("session/LoginOk.jsp");
 			   
 		   }else{
-			 response.setContentType("text/html; charset=UTF-8");
-			 
-			 PrintWriter out = response.getWriter();  
-			 out.println("<script>");  
-			 out.println("alert('" + userName + "님 정보를 다시 확인해주세요.')");  
-			 out.println("history.back();");
-			 out.println("</script>");  
-			 
-			 
+			 //response.setContentType("text/html; charset=UTF-8");
+
+//			 PrintWriter out = response.getWriter();
+//			 out.println("<script>");
+//			 out.println("alert('" + userName + "님 정보를 다시 확인해주세요.')");
+//			 out.println("history.back();");
+//			 out.println("</script>");
+
+			   request.setAttribute("errMsg", userName + "님 정보를 확인해주세요");
+			   request
+					   .getRequestDispatcher("/error/error.jsp")
+					   .forward(request, response);
 		   }
 		
 	}

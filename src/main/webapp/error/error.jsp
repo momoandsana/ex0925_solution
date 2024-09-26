@@ -11,6 +11,9 @@
     <title>Title</title>
 </head>
 <body>
-
+<script>
+    alert("${requestScope.errMsg}");
+    location.href="${pageContext.request.contextPath}/LoginForm.jsp"
+</script>
 </body>
 </html>

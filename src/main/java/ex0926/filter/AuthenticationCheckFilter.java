@@ -24,8 +24,8 @@ public class AuthenticationCheckFilter implements Filter {
             req.setAttribute("errMsg","로그인하고 이용해주세요");
             // 에러메시지를 세션에 저장해서 보낸다.
             // 뷰에서 ${errMsg} requestScope.errMsg
-            req.getRequestDispatcher("err/error.jsp").forward(request, response);
-            return;
+            req.getRequestDispatcher("../error/error.jsp").forward(request, response);
+            return;// 다음 doFilter 함수가 실행되면 안 되니까
         }
 
         chain.doFilter(request,response);
